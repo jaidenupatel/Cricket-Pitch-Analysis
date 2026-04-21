@@ -1,34 +1,164 @@
 import { stadiums } from '@/data/stadiums'
-import StadiumCard from '@/components/StadiumCard'
+import Image from 'next/image'
 import Link from 'next/link'
 
-export default function StadiumsPage() {
+export function generateStaticParams() {
+  return stadiums.map((s) => ({ slug: s.slug }))
+}
+
+function StatBar({ label, value }) {
+  return (
+    <div className="mb-4">
+      <div className="flex justify-between items-center mb-1">
+        <span className="text-xs uppercase tracking-widest text-[#a09880]">
+          {label}
+        </span>
+        <span className="text-xs text-[#c45e1a] font-bold">
+          {value}/5
+        </span>
+      </div>
+      <div className="flex gap-1">
+        {[1, 2, 3, 4, 5].map((i) => (
+          <div
+            key={i}
+            className={`h-2 flex-1 ${
+              i <= value ? 'bg-[#c45e1a]' : 'bg-[#222222]'
+            }`}
+          />
+        ))}
+      </div>
+    </div>
+  )
+}
+
+function InningsRow({ format, first, second }) {
+  if (!first && !second) return null
+  return (
+    <div className="mb-3">
+      <p className="text-xs uppercase tracking-widest text-[#a09880] mb-2">
+        {format}
+      </p>
+      <div className="flex gap-4">
+        <div className="flex-1 bg-[#111111] p-3 border border-[#222222]">
+          <p className="text-xs text-[#a09880] mb-1">1st Inn</p>
+          <p className="text-2xl font-bold text-[#f5f0e8]">{first}</p>
+        </div>
+        <div className="flex-1 bg-[#111111] p-3 border border-[#222222]">
+          <p className="text-xs text-[#a09880] mb-1">2nd Inn</p>
+          <p className="text-2xl font-bold text-[#c45e1a]">{second}</p>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+export default function StadiumPage({ params }) {
+  const stadium = stadiums.find((s) => s.slug === params.slug)
+
+  if (!stadium) {
+    return (
+      <main className="min-h-screen bg-[#0a0a0a] text-[#f5f0e8] flex items-center justify-center">
+        <p>Stadium not found.</p>
+      </main>
+    )
+  }
+
   return (
     <main className="min-h-screen bg-[#0a0a0a] text-[#f5f0e8]">
 
-      {/* Header */}
-      <div className="relative px-8 md:px-16 pt-20 pb-12 overflow-hidden">
-        <div className="absolute top-0 right-0 w-1/3 h-full bg-[#c45e1a] opacity-5 skew-x-6 transform" />
-        <Link href="/">
-          <p className="text-[#c45e1a] text-xs uppercase tracking-widest mb-6 hover:text-[#e06b1f] transition-colors">
-            ← Back
+      {/* Hero */}
+      <div className="relative h-[50vh] overflow-hidden">
+        <div className="absolute inset-0 bg-[#0a0a0a] opacity-60 z-10" />
+        {stadium.image ? (
+          <Image
+            src={stadium.image}
+            alt={stadium.name}
+            fill
+            className="object-cover"
+          />
+        ) : (
+          <div className="w-full h-full bg-[#1a1a1a]" />
+        )}
+        {/* Angled color band */}
+        <div className="absolute bottom-0 left-0 w-full z-20">
+          <div className="relative bg-[#c45e1a] px-8 md:px-16 py-6 skew-y-1 transform -mb-2">
+            <div className="-skew-y-1 transform">
+              <p className="text-white/70 text-xs uppercase tracking-widest mb-1">
+                {stadium.city}, {stadium.country}
+              </p>
+              <h1 className="text-3xl md:text-5xl font-bold text-white leading-tight">
+                {stadium.name}
+              </h1>
+            </div>
+          </div>
+        </div>
+        {/* Back link */}
+        <Link href="/stadiums">
+          <p className="absolute top-6 left-8 z-30 text-white text-xs uppercase tracking-widest hover:text-[#c45e1a] transition-colors">
+            ← All Grounds
           </p>
         </Link>
-        <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-4">
-          THE GROUNDS
-        </h1>
-        <p className="text-[#a09880] text-lg max-w-xl">
-          Eleven venues across four continents. Each one a unique
-          intersection of climate, geography, and architectural identity.
-        </p>
       </div>
 
-      {/* Grid */}
-      <div className="px-8 md:px-16 pb-20">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {stadiums.map((stadium) => (
-            <StadiumCard key={stadium.slug} stadium={stadium} />
-          ))}
+      {/* Body */}
+      <div className="px-8 md:px-16 py-16 grid grid-cols-1 lg:grid-cols-2 gap-12">
+
+        {/* Left — Description & Aesthetic */}
+        <div>
+          <div className="mb-8">
+            <p className="text-[#c45e1a] text-xs uppercase tracking-widest mb-3">
+              About this Ground
+            </p>
+            <p className="text-[#a09880] leading-relaxed">
+              {stadium.description}
+            </p>
+          </div>
+          <div className="bg-[#111111] border border-[#222222] p-6">
+            <p className="text-[#c45e1a] text-xs uppercase tracking-widest mb-2">
+              Aesthetic Identity
+            </p>
+            <p className="text-[#f5f0e8] leading-relaxed">
+              {stadium.aestheticHook}
+            </p>
+          </div>
+        </div>
+
+        {/* Right — Stats */}
+        <div>
+
+          {/* Pitch Conditions */}
+          <div className="mb-10">
+            <p className="text-[#c45e1a] text-xs uppercase tracking-widest mb-6">
+              Pitch Conditions
+            </p>
+            <StatBar label="Grass Cover" value={stadium.grassCover} />
+            <StatBar label="Moisture" value={stadium.moisture} />
+            <StatBar label="Cracks" value={stadium.cracks} />
+            <StatBar label="Dew Factor" value={stadium.dew} />
+          </div>
+
+          {/* Innings Averages */}
+          <div>
+            <p className="text-[#c45e1a] text-xs uppercase tracking-widest mb-6">
+              Innings Averages (Recent)
+            </p>
+            <InningsRow
+              format="Test"
+              first={stadium.testAvg1st}
+              second={stadium.testAvg2nd}
+            />
+            <InningsRow
+              format="ODI"
+              first={stadium.odiAvg1st}
+              second={stadium.odiAvg2nd}
+            />
+            <InningsRow
+              format={stadium.t20League || 'Domestic T20'}
+              first={stadium.t20Avg1st}
+              second={stadium.t20Avg2nd}
+            />
+          </div>
+
         </div>
       </div>
 
