@@ -1,10 +1,7 @@
 import { stadiums } from '@/data/stadiums'
 import Image from 'next/image'
 import Link from 'next/link'
-export default async function StadiumPage({params}) {
-  const {slug} = await params
-  const stadium = stadiums.find((s) => s.slug === slug)
-}
+
 export function generateStaticParams() {
   return stadiums.map((s) => ({ slug: s.slug }))
 }
