@@ -29,6 +29,11 @@ export default function Home() {
               Explore Stadiums →
             </button>
           </Link>
+          <Link href="/tool">
+          <button className="border border-[#1a4a3a] text-[#a09880] px-8 py-4 text-sm uppercase tracking-widest hover:border-[#c45e1a] hover:text-[#f5f0e8] transition-colors duration-200 ml-4">
+            Pitch Tool →
+          </button>
+          </Link>
         </div>
 
         {/* Bottom label */}
