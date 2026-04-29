@@ -52,8 +52,9 @@ function InningsRow({ format, first, second }) {
   )
 }
 
-export default function StadiumPage({ params }) {
-  const stadium = stadiums.find((s) => s.slug === params.slug)
+export default async function StadiumPage({params}) {
+  const {slug} = await params
+  const stadium = stadiums.find((s) => s.slug === slug)
 
   if (!stadium) {
     return (
