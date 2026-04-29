@@ -10,10 +10,10 @@ function StatBar({ label, value }) {
   return (
     <div className="mb-4">
       <div className="flex justify-between items-center mb-1">
-        <span className="text-xs uppercase tracking-widest text-[#a09880]">
+        <span className="text-xs uppercase tracking-widest text-white/60">
           {label}
         </span>
-        <span className="text-xs text-[#c45e1a] font-bold">
+        <span className="text-xs text-[#f5c518] font-bold">
           {value}/5
         </span>
       </div>
@@ -22,7 +22,7 @@ function StatBar({ label, value }) {
           <div
             key={i}
             className={`h-2 flex-1 ${
-              i <= value ? 'bg-[#c45e1a]' : 'bg-[#222222]'
+              i <= value ? 'bg-[#e91e8c]' : 'bg-[#3d2b79]'
             }`}
           />
         ))}
@@ -35,17 +35,17 @@ function InningsRow({ format, first, second }) {
   if (!first && !second) return null
   return (
     <div className="mb-3">
-      <p className="text-xs uppercase tracking-widest text-[#a09880] mb-2">
+      <p className="text-xs uppercase tracking-widest text-white/60 mb-2">
         {format}
       </p>
       <div className="flex gap-4">
-        <div className="flex-1 bg-[#111111] p-3 border border-[#222222]">
-          <p className="text-xs text-[#a09880] mb-1">1st Inn</p>
-          <p className="text-2xl font-bold text-[#f5f0e8]">{first}</p>
+        <div className="flex-1 bg-[#2d1b69] p-3 border border-[#3d2b79]">
+          <p className="text-xs text-white/60 mb-1">1st Inn</p>
+          <p className="text-2xl font-bold text-white">{first}</p>
         </div>
-        <div className="flex-1 bg-[#111111] p-3 border border-[#222222]">
-          <p className="text-xs text-[#a09880] mb-1">2nd Inn</p>
-          <p className="text-2xl font-bold text-[#c45e1a]">{second}</p>
+        <div className="flex-1 bg-[#2d1b69] p-3 border border-[#3d2b79]">
+          <p className="text-xs text-white/60 mb-1">2nd Inn</p>
+          <p className="text-2xl font-bold text-[#f5c518]">{second}</p>
         </div>
       </div>
     </div>
@@ -58,18 +58,18 @@ export default async function StadiumPage({params}) {
 
   if (!stadium) {
     return (
-      <main className="min-h-screen bg-[#0a0a0a] text-[#f5f0e8] flex items-center justify-center">
+      <main className="min-h-screen bg- text-white flex items-center justify-center">
         <p>Stadium not found.</p>
       </main>
     )
   }
 
   return (
-    <main className="min-h-screen bg-[#0a0a0a] text-[#f5f0e8]">
+    <main className="min-h-screen bg- text-white">
 
       {/* Hero */}
       <div className="relative h-[50vh] overflow-hidden">
-        <div className="absolute inset-0 bg-[#0a0a0a] opacity-60 z-10" />
+        <div className="absolute inset-0 bg- opacity-60 z-10" />
         {stadium.image ? (
           <Image
             src={stadium.image}
@@ -82,7 +82,7 @@ export default async function StadiumPage({params}) {
         )}
         {/* Angled color band */}
         <div className="absolute bottom-0 left-0 w-full z-20">
-          <div className="relative bg-[#c45e1a] px-8 md:px-16 py-6 skew-y-1 transform -mb-2">
+          <div className="relative bg-[#e91e8c] px-8 md:px-16 py-6 skew-y-1 transform -mb-2">
             <div className="-skew-y-1 transform">
               <p className="text-white/70 text-xs uppercase tracking-widest mb-1">
                 {stadium.city}, {stadium.country}
@@ -107,18 +107,18 @@ export default async function StadiumPage({params}) {
         {/* Left — Description & Aesthetic */}
         <div>
           <div className="mb-8">
-            <p className="text-[#c45e1a] text-xs uppercase tracking-widest mb-3">
+            <p className="text-[#f5c518] text-xs uppercase tracking-widest mb-3">
               About this Ground
             </p>
-            <p className="text-[#a09880] leading-relaxed">
+            <p className="text-white/60 leading-relaxed">
               {stadium.description}
             </p>
           </div>
-          <div className="bg-[#111111] border border-[#222222] p-6">
-            <p className="text-[#c45e1a] text-xs uppercase tracking-widest mb-2">
+          <div className="bg-[#2d1b69] border border-[#3d2b79] p-6">
+            <p className="text-[#f5c518] text-xs uppercase tracking-widest mb-2">
               Aesthetic Identity
             </p>
-            <p className="text-[#f5f0e8] leading-relaxed">
+            <p className="text-white leading-relaxed">
               {stadium.aestheticHook}
             </p>
           </div>
@@ -129,7 +129,7 @@ export default async function StadiumPage({params}) {
 
           {/* Pitch Conditions */}
           <div className="mb-10">
-            <p className="text-[#c45e1a] text-xs uppercase tracking-widest mb-6">
+            <p className="text-[#f5c518] text-xs uppercase tracking-widest mb-6">
               Pitch Conditions
             </p>
             <StatBar label="Grass Cover" value={stadium.grassCover} />
@@ -140,7 +140,7 @@ export default async function StadiumPage({params}) {
 
           {/* Innings Averages */}
           <div>
-            <p className="text-[#c45e1a] text-xs uppercase tracking-widest mb-6">
+            <p className="text-[#f5c518] text-xs uppercase tracking-widest mb-6">
               Innings Averages (Recent)
             </p>
             <InningsRow

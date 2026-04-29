@@ -74,7 +74,7 @@ export default function ToolPage() {
   const allSelected = selectedStadium && selectedFormat && selectedCondition
 
   return (
-    <main className="min-h-screen bg-[#0a0a0a] text-[#f5f0e8]">
+    <main className="min-h-screen bg- text-white">
 
       {/* Header */}
       <div className="relative px-8 md:px-16 pt-20 pb-12 overflow-hidden">
@@ -87,7 +87,7 @@ export default function ToolPage() {
         <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-4">
           PITCH TOOL
         </h1>
-        <p className="text-[#a09880] text-lg max-w-xl">
+        <p className="text-white/60 text-lg max-w-xl">
           Select a ground, format, and match conditions to get an
           analytical breakdown of expected pitch behavior.
         </p>
@@ -98,19 +98,19 @@ export default function ToolPage() {
 
         {/* Inputs */}
         <div>
-          <p className="text-[#c45e1a] text-xs uppercase tracking-widest mb-6">
+          <p className="text-[#f5c518] text-xs uppercase tracking-widest mb-6">
             Select Conditions
           </p>
 
           {/* Stadium */}
           <div className="mb-6">
-            <label className="block text-xs uppercase tracking-widest text-[#a09880] mb-2">
+            <label className="block text-xs uppercase tracking-widest text-white/60 mb-2">
               Ground
             </label>
             <select
               value={selectedStadium}
               onChange={(e) => setSelectedStadium(e.target.value)}
-              className="w-full bg-[#111111] border border-[#222222] text-[#f5f0e8] px-4 py-3 text-sm focus:outline-none focus:border-[#c45e1a] transition-colors"
+              className="w-full bg-[#2d1b69] border border-[#3d2b79] text-white px-4 py-3 text-sm focus:outline-none focus:border-[#f5c518] transition-colors"
             >
               <option value="">Select a ground...</option>
               {stadiums.map((s) => (
@@ -123,7 +123,7 @@ export default function ToolPage() {
 
           {/* Format */}
           <div className="mb-6">
-            <label className="block text-xs uppercase tracking-widest text-[#a09880] mb-2">
+            <label className="block text-xs uppercase tracking-widest text-white/60 mb-2">
               Format
             </label>
             <div className="flex gap-3">
@@ -133,8 +133,8 @@ export default function ToolPage() {
                   onClick={() => setSelectedFormat(f)}
                   className={`flex-1 py-3 text-sm uppercase tracking-widest border transition-colors ${
                     selectedFormat === f
-                      ? 'bg-[#c45e1a] border-[#c45e1a] text-white'
-                      : 'bg-[#111111] border-[#222222] text-[#a09880] hover:border-[#c45e1a]'
+                      ? 'bg-[#e9138c] border-[#f5c518] text-white'
+                      : 'bg-[#2d1b69] border-[#3d2b79] text-white/60 hover:border-[#f5c518]'
                   }`}
                 >
                   {f}
@@ -145,7 +145,7 @@ export default function ToolPage() {
 
           {/* Conditions */}
           <div className="mb-6">
-            <label className="block text-xs uppercase tracking-widest text-[#a09880] mb-2">
+            <label className="block text-xs uppercase tracking-widest text-white/60 mb-2">
               Match Conditions
             </label>
             <div className="flex flex-col gap-3">
@@ -155,8 +155,8 @@ export default function ToolPage() {
                   onClick={() => setSelectedCondition(c)}
                   className={`py-3 px-4 text-sm uppercase tracking-widest border text-left transition-colors ${
                     selectedCondition === c
-                      ? 'bg-[#c45e1a] border-[#c45e1a] text-white'
-                      : 'bg-[#111111] border-[#222222] text-[#a09880] hover:border-[#c45e1a]'
+                      ? 'bg-[#e91e8c] border-[#f5c518] text-white'
+                      : 'bg-[#2d1b69] border-[#3d2b79] text-white/60 hover:border-[#f5c518]'
                   }`}
                 >
                   {c}
@@ -173,40 +173,40 @@ export default function ToolPage() {
           </p>
 
           {!allSelected ? (
-            <div className="bg-[#111111] border border-[#222222] p-8 h-64 flex items-center justify-center">
+            <div className="bg-[#2d1b69] border border-[#3d2b79] p-8 h-64 flex items-center justify-center">
               <p className="text-[#a09880] text-sm text-center">
                 Select a ground, format, and conditions to see the analysis.
               </p>
             </div>
           ) : (
-            <div className="bg-[#111111] border border-[#c45e1a] p-8">
+            <div className="bg-[#2d1b69] border border-[#f5c518] p-8">
 
               <h2 className="text-xl font-bold mb-6 text-[#f5f0e8]">
                 {output.name} — {selectedFormat} — {selectedCondition}
               </h2>
 
               {/* Advantage */}
-              <div className="mb-6 bg-[#0a0a0a] border border-[#222222] p-4 flex items-center justify-between">
-                <span className="text-xs uppercase tracking-widest text-[#a09880]">
+              <div className="mb-6 bg- border border-[#3d2b79] p-4 flex items-center justify-between">
+                <span className="text-xs uppercase tracking-widest text-white/60">
                   Advantage
                 </span>
-                <span className="text-[#c45e1a] font-bold uppercase tracking-widest">
+                <span className="text-[#f5c518] font-bold uppercase tracking-widest">
                   {output.advantage}
                 </span>
               </div>
 
               {/* Risk indicators */}
               <div className="grid grid-cols-2 gap-4 mb-6">
-                <div className="bg-[#0a0a0a] border border-[#222222] p-4">
-                  <p className="text-xs uppercase tracking-widest text-[#a09880] mb-1">
+                <div className="bg- border border-[#3d2b79] p-4">
+                  <p className="text-xs uppercase tracking-widest text-white/60 mb-1">
                     Dew Risk
                   </p>
                   <p className={`font-bold uppercase ${riskColor(output.dewRisk)}`}>
                     {output.dewRisk}
                   </p>
                 </div>
-                <div className="bg-[#0a0a0a] border border-[#222222] p-4">
-                  <p className="text-xs uppercase tracking-widest text-[#a09880] mb-1">
+                <div className="bg- border border-[#3d2b79] p-4">
+                  <p className="text-xs uppercase tracking-widest text-white/60 mb-1">
                     Crack Risk
                   </p>
                   <p className={`font-bold uppercase ${riskColor(output.crackRisk)}`}>
@@ -217,20 +217,20 @@ export default function ToolPage() {
 
               {/* Pitch behavior */}
               <div className="mb-6">
-                <p className="text-xs uppercase tracking-widest text-[#a09880] mb-2">
+                <p className="text-xs uppercase tracking-widest text-/white60 mb-2">
                   Expected Pitch Behavior
                 </p>
-                <p className="text-[#f5f0e8] leading-relaxed text-sm">
+                <p className="text-white leading-relaxed text-sm">
                   {output.behavior}
                 </p>
               </div>
 
               {/* Toss */}
-              <div className="border-t border-[#222222] pt-6">
-                <p className="text-xs uppercase tracking-widest text-[#a09880] mb-2">
+              <div className="border-t border-[#3d2b79] pt-6">
+                <p className="text-xs uppercase tracking-widest text-white/60 mb-2">
                   Toss Recommendation
                 </p>
-                <p className="text-[#f5f0e8] leading-relaxed text-sm">
+                <p className="text-white leading-relaxed text-sm">
                   {output.toss}
                 </p>
               </div>
