@@ -7,9 +7,10 @@ export function generateStaticParams() {
 }
 
 function StatBar({ label, value }) {
+  const qualitativeLabels = { 1: 'Low', 3: 'Moderate', 5: 'High' }
   return (
-    <div className="mb-4">
-      <div className="flex justify-between items-center mb-1">
+    <div className="mb-6">
+      <div className="flex justify-between items-center mb-2">
         <span className="text-xs uppercase tracking-widest text-white/60">
           {label}
         </span>
@@ -17,14 +18,25 @@ function StatBar({ label, value }) {
           {value}/5
         </span>
       </div>
-      <div className="flex gap-1">
+      <div className="flex gap-1 mb-1">
         {[1, 2, 3, 4, 5].map((i) => (
           <div
             key={i}
-            className={`h-2 flex-1 ${
+            className={`h-3 flex-1 ${
               i <= value ? 'bg-[#e91e8c]' : 'bg-[#3d2b79]'
             }`}
           />
+        ))}
+      </div>
+      <div className="flex justify-between">
+        {[1, 2, 3, 4, 5].map((i) => (
+          <div key={i} className="flex-1 text-center">
+            {qualitativeLabels[i] && (
+              <span className="text-white/30 text-xs">
+                {qualitativeLabels[i]}
+              </span>
+            )}
+          </div>
         ))}
       </div>
     </div>

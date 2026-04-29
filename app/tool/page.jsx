@@ -104,7 +104,7 @@ export default function ToolPage() {
 
           {/* Stadium */}
           <div className="mb-6">
-            <label className="block text-xs uppercase tracking-widest text-white/60 mb-2">
+            <label className="block text-xs uppercase tracking-widest text-[#e91e8c] mb-2">
               Ground
             </label>
             <select
@@ -123,7 +123,7 @@ export default function ToolPage() {
 
           {/* Format */}
           <div className="mb-6">
-            <label className="block text-xs uppercase tracking-widest text-white/60 mb-2">
+            <label className="block text-xs uppercase tracking-widest text-[#e91e8c] mb-2">
               Format
             </label>
             <div className="flex gap-3">
@@ -145,7 +145,7 @@ export default function ToolPage() {
 
           {/* Conditions */}
           <div className="mb-6">
-            <label className="block text-xs uppercase tracking-widest text-white/60 mb-2">
+            <label className="block text-xs uppercase tracking-widest text-[#e91e8c] mb-2">
               Match Conditions
             </label>
             <div className="flex flex-col gap-3">
@@ -168,20 +168,20 @@ export default function ToolPage() {
 
         {/* Output */}
         <div>
-          <p className="text-[#c45e1a] text-xs uppercase tracking-widest mb-6">
+          <p className="text-[#e91e8c] text-xs uppercase tracking-widest mb-6">
             Analysis
           </p>
 
           {!allSelected ? (
             <div className="bg-[#2d1b69] border border-[#3d2b79] p-8 h-64 flex items-center justify-center">
-              <p className="text-[#a09880] text-sm text-center">
+              <p className="text-white/60 text-sm text-center">
                 Select a ground, format, and conditions to see the analysis.
               </p>
             </div>
           ) : (
             <div className="bg-[#2d1b69] border border-[#f5c518] p-8">
 
-              <h2 className="text-xl font-bold mb-6 text-[#f5f0e8]">
+              <h2 className="text-xl font-bold mb-6 text-white">
                 {output.name} — {selectedFormat} — {selectedCondition}
               </h2>
 
