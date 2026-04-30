@@ -4,7 +4,7 @@ import Image from 'next/image'
 export default function StadiumCard({ stadium }) {
   return (
     <Link href={`/stadiums/${stadium.slug}`}>
-      <div className="group relative overflow-hidden cursor-pointer bg-[#2d1b69] border border-[#3d2b79] hover:border-[#e91e8c] transition-all duration-300">
+      <div className="group relative overflow-hidden cursor-pointer bg-[#2d1b69] border border-[#e91e8c] hover:border-[#e91e8c] transition-all duration-300">
 
         {/* Image */}
         <div className="relative h-48 w-full overflow-hidden">
@@ -31,10 +31,10 @@ export default function StadiumCard({ stadium }) {
 
         {/* Content */}
         <div className="p-5">
-          <h2 className="text-lg font-black text-white mb-1 leading-tight">
+          <h2 className="text-lg font-black text-[#00b4d8] mb-1 leading-tight">
             {stadium.name}
           </h2>
-          <p className="text-white/50 text-sm mb-3">
+          <p className="text-[#00b4d8] text-sm mb-3">
             {stadium.city}, {stadium.country}
           </p>
           <p className="text-[#f5c518] text-xs uppercase tracking-widest font-bold">
