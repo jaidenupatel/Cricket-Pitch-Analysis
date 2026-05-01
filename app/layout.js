@@ -1,4 +1,4 @@
-import { Montserrat, Nunito } from "next/font/google";
+import { Montserrat, Nunito, Poppins } from "next/font/google";
 import "./globals.css";
 
 const montserrat = Montserrat({

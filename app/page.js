@@ -55,16 +55,16 @@ export default function Home() {
 
           {/* Title */}
           <h1
-            className="font-black leading-none mb-10 tracking-tight"
+            className="font-black leading-none mb-10 tracking-relaxed"
             style={{
-              fontFamily: 'var(--font-montserrat)',
+              fontFamily: 'var(--font-poppins)',
               fontSize: 'clamp(5rem, 12vw, 10rem)',
             }}
+            /* 5, 12, 10*/
           >
-            <span className="text-white">PITCH</span>
-            <span className="text-[#f5c518]"> &</span>
-            <br />
-            <span className="text-white">PLACE</span>
+            <span className="text-white">PR</span>
+            <span className="text-[#f5c518]">'</span>
+            <span className="text-white">23</span>
           </h1>
 
           {/* Subtitle */}
@@ -80,7 +80,7 @@ export default function Home() {
           </p>
 
           {/* Buttons */}
-          <div style={{ display: 'flex', gap: '60px', marginTop: '80px', flexWrap: 'wrap', justifyContent: 'center' }}>
+          <div style={{ display: 'flex', gap: '60px', marginTop: '5px', flexWrap: 'wrap', justifyContent: 'center' }}>
 
             {/* Explore Stadiums */}
             <Link href="/stadiums" style={{textDecoration: 'none'}}>
