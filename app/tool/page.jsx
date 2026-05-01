@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import { stadiums } from '@/data/stadiums'
 import Link from 'next/link'
+import { StarFour, Diamond, Droplet } from '@/components/WorldCupShapes'
 
 const formats = ['Test', 'ODI', 'T20']
 const conditions = ['Morning', 'Afternoon', 'Evening (Under Lights)']
@@ -87,6 +88,12 @@ export default function ToolPage() {
         <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-4">
           PITCH TOOL
         </h1>
+        <div className="absolute top-8 right-16 pointer-events-none">
+          <StarFour color="#e91e8c" size={80} opacity={0.12} rotate={15} />
+        </div>
+        <div className="absolute top-16 right-48 pointer-events-none">
+          <Diamond color="#f5c518" size={35} opacity={0.2} rotate={20} />
+        </div>
         <p className="text-white/60 text-lg max-w-xl">
           Select a ground, format, and match conditions to get an
           analytical breakdown of expected pitch behavior.
@@ -131,8 +138,13 @@ export default function ToolPage() {
               {formats.map((f) => (
                 <button
                   key={f}
-                  onClick={() => setSelectedFormat(f)}
-                  style={{ color: 'white', fontFamily: 'var(--font-poppins)' }}
+                  onClick={() => {
+                    setSelectedFormat(f)
+                    if (selectedCondition === 'Evening (Under Lights)') {
+                      setSelectedCondition('')
+                    }
+                  }}
+                  style={{ color: 'white', fontFamily: 'var(--font-montserrat)' }}
                   className={`flex-1 py-3 text-sm uppercase tracking-widest border transition-colors ${
                     selectedFormat === f
                       ? 'bg-[#e9138c] border-[#e91e8c] text-white'
@@ -151,20 +163,25 @@ export default function ToolPage() {
               Match Time
             </label>
             <div className="flex flex-col gap-3">
-              {conditions.map((c) => (
-                <button
-                  key={c}
-                  onClick={() => setSelectedCondition(c)}
-                  style={{ color: 'white', fontFamily: 'var(--font-poppins)' }}
-                  className={`py-3 px-4 text-sm uppercase tracking-widest border text-left transition-colors ${
-                    selectedCondition === c
-                      ? 'bg-[#e91e8c] border-[#e91e8c] text-white'
-                      : 'bg-[#2d1b69] border-[#3d2b79] text-white hover:border-[#e91e8c]'
-                  }`}
-                >
-                  {c}
-                </button>
-              ))}
+              {conditions.map((c) => {
+                const isDisabled = c === 'Evening (Under Lights)' && (selectedFormat === 'Test' || selectedFormat === 'ODI')
+                return (
+                  <button
+                    key={c}
+                    onClick={() => !isDisabled && setSelectedCondition(c)}
+                    style={{ color: 'white', fontFamily: 'var(--font-montserrat)' }}
+                    className={`py-3 px-4 text-sm uppercase tracking-widest border text-left transition-colors ${
+                      isDisabled
+                        ? 'bg-[#1e1245] border-[#2d1b69] text-white/20 cursor-not-allowed'
+                        : selectedCondition === c
+                        ? 'bg-[#e91e8c] border-[#e91e8c] text-white'
+                        : 'bg-[#2d1b69] border-[#3d2b79] text-white hover:border-[#e91e8c]'
+                    }`}
+                  >
+                    {c} {isDisabled && '— N/A for this format'}
+                  </button>
+                )
+              })}
             </div>
           </div>
         </div>

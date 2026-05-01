@@ -1,7 +1,7 @@
-import { Poppins, Nunito } from "next/font/google";
+import { Montserrat, Nunito } from "next/font/google";
 import "./globals.css";
 
-const poppins = Poppins({
+const montserrat = Montserrat({
   variable: "--font-poppins",
   subsets: ["latin"],
   weight: ["400", "600", "700", "800", "900"],
@@ -22,7 +22,7 @@ export default function RootLayout({ children }) {
   return (
     <html
       lang="en"
-      className={`${poppins.variable} ${nunito.variable} h-full antialiased`}
+      className={`${montserrat.variable} ${nunito.variable} h-full antialiased`}
     >
       <body
         className="min-h-full flex flex-col"

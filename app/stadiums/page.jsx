@@ -1,14 +1,34 @@
 import { stadiums } from '@/data/stadiums'
 import StadiumCard from '@/components/StadiumCard'
 import Link from 'next/link'
+import { StarFour, StarSix, Droplet, Diamond, FlowerCross } from '@/components/WorldCupShapes'
 
 export default function StadiumsPage() {
   return (
     <main className="min-h-screen bg-[#1e1245] text-white">
 
-      {/* Decorative shapes */}
-      <div className="absolute top-10 right-10 w-20 h-20 bg-[#f5c518] opacity-20 rotate-45 transform" />
-      <div className="absolute top-32 right-32 w-12 h-12 bg-[#e91e8c] opacity-30 transform" style={{clipPath: 'polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%)'}} />
+      {/* Decorative World Cup shapes */}
+      <div className="absolute top-12 right-16 pointer-events-none">
+        <StarFour color="#e91e8c" size={120} opacity={0.15} rotate={15} />
+      </div>
+      <div className="absolute top-8 right-64 pointer-events-none">
+        <Diamond color="#f5c518" size={40} opacity={0.25} rotate={20} />
+      </div>
+      <div className="absolute top-1/3 right-8 pointer-events-none">
+        <Droplet color="#00b4d8" size={80} opacity={0.15} rotate={-20} />
+      </div>
+      <div className="absolute bottom-24 right-32 pointer-events-none">
+        <StarSix color="#f5c518" size={70} opacity={0.15} rotate={10} />
+      </div>
+      <div className="absolute bottom-16 left-16 pointer-events-none">
+        <FlowerCross color="#e91e8c" size={60} opacity={0.12} rotate={0} />
+      </div>
+      <div className="absolute top-1/2 left-8 pointer-events-none">
+        <Diamond color="#00b4d8" size={30} opacity={0.2} rotate={45} />
+      </div>
+      <div className="absolute bottom-1/3 right-48 pointer-events-none">
+        <StarFour color="#f5c518" size={50} opacity={0.12} rotate={30} />
+      </div>
 
       {/* Top accent bar */}
       <div className="w-full h-1 bg-gradient-to-r from-[#e91e8c] via-[#f5c518] to-[#00b4d8]" />

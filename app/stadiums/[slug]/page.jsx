@@ -13,13 +13,13 @@ function StatBar({ label, value }) {
       <div className="flex justify-between items-center mb-2">
         <span
           className="text-xs uppercase tracking-widest text-white/60"
-          style={{ fontFamily: 'var(--font-poppins)' }}
+          style={{ fontFamily: 'var(--font-montserrat)' }}
         >
           {label}
         </span>
         <span
           className="text-xs text-[#f5c518] font-bold"
-          style={{ fontFamily: 'var(--font-poppins)' }}
+          style={{ fontFamily: 'var(--font-montserrat)' }}
         >
           {value}/5
         </span>
@@ -58,7 +58,7 @@ function InningsRow({ format, first, second }) {
     <div className="mb-5">
       <p
         className="text-xs uppercase tracking-widest text-white/50 mb-3"
-        style={{ fontFamily: 'var(--font-poppins)' }}
+        style={{ fontFamily: 'var(--font-montserrat)' }}
       >
         {format}
       </p>
@@ -72,7 +72,7 @@ function InningsRow({ format, first, second }) {
           </p>
           <p
             className="text-3xl font-black text-white"
-            style={{ fontFamily: 'var(--font-poppins)' }}
+            style={{ fontFamily: 'var(--font-montserrat)' }}
           >
             {first}
           </p>
@@ -86,7 +86,7 @@ function InningsRow({ format, first, second }) {
           </p>
           <p
             className="text-3xl font-black text-[#f5c518]"
-            style={{ fontFamily: 'var(--font-poppins)' }}
+            style={{ fontFamily: 'var(--font-montserrat)' }}
           >
             {second}
           </p>
@@ -136,7 +136,7 @@ export default async function StadiumPage({ params }) {
           <Link href="/stadiums">
             <p
               className="text-white/70 text-xs uppercase tracking-widest hover:text-[#f5c518] transition-colors"
-              style={{ fontFamily: 'var(--font-poppins)' }}
+              style={{ fontFamily: 'var(--font-montserrat)' }}
             >
               ← All Grounds
             </p>
@@ -147,14 +147,14 @@ export default async function StadiumPage({ params }) {
         <div className="absolute bottom-0 left-0 w-full px-10 md:px-16 pb-8 z-20">
           <p
             className="text-white/50 text-xs uppercase tracking-widest mb-2"
-            style={{ fontFamily: 'var(--font-poppins)' }}
+            style={{ fontFamily: 'var(--font-montserrat)' }}
           >
             {stadium.city}, {stadium.country}
           </p>
           <h1
             className="font-black text-white leading-tight"
             style={{
-              fontFamily: 'var(--font-poppins)',
+              fontFamily: 'var(--font-montserrat)',
               fontSize: 'clamp(2rem, 5vw, 4rem)',
             }}
           >
@@ -172,7 +172,7 @@ export default async function StadiumPage({ params }) {
         <div>
           <p
             className="text-[#f5c518] text-xs uppercase tracking-widest mb-4"
-            style={{ fontFamily: 'var(--font-poppins)' }}
+            style={{ fontFamily: 'var(--font-montserrat)' }}
           >
             About this Ground
           </p>
@@ -186,7 +186,7 @@ export default async function StadiumPage({ params }) {
           <div className="bg-[#2d1b69] border border-[#3d2b79] p-6">
             <p
               className="text-[#f5c518] text-xs uppercase tracking-widest mb-3"
-              style={{ fontFamily: 'var(--font-poppins)' }}
+              style={{ fontFamily: 'var(--font-montserrat)' }}
             >
               Aesthetic Identity
             </p>
@@ -204,7 +204,7 @@ export default async function StadiumPage({ params }) {
           {/* Pitch Conditions */}
           <p
             className="text-[#f5c518] text-xs uppercase tracking-widest mb-6"
-            style={{ fontFamily: 'var(--font-poppins)' }}
+            style={{ fontFamily: 'var(--font-montserrat)' }}
           >
             Pitch Conditions
           </p>
@@ -218,7 +218,7 @@ export default async function StadiumPage({ params }) {
           {/* Innings Averages */}
           <p
             className="text-[#f5c518] text-xs uppercase tracking-widest mb-6"
-            style={{ fontFamily: 'var(--font-poppins)' }}
+            style={{ fontFamily: 'var(--font-montserrat)' }}
           >
             Innings Averages (Recent)
           </p>

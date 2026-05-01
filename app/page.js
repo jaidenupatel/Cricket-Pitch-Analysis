@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { StarFour, StarSix, Droplet, Diamond, FlowerCross } from '@/components/WorldCupShapes'
 
 export default function Home() {
   return (
@@ -7,17 +8,34 @@ export default function Home() {
       {/* Top accent bar */}
       <div className="w-full h-1 bg-gradient-to-r from-[#e91e8c] via-[#f5c518] to-[#00b4d8] flex-shrink-0" />
 
-      {/* Decorative shapes */}
-      <div className="absolute top-16 right-0 w-72 h-72 bg-[#e91e8c] opacity-10 rotate-45 transform translate-x-36 pointer-events-none" />
-      <div
-        className="absolute top-24 right-24 w-16 h-16 bg-[#f5c518] opacity-20 pointer-events-none"
-        style={{ clipPath: 'polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%)' }}
-      />
-      <div
-        className="absolute bottom-32 left-8 w-24 h-24 bg-[#00b4d8] opacity-15 pointer-events-none"
-        style={{ clipPath: 'polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%)' }}
-      />
-      <div className="absolute bottom-16 right-16 w-14 h-14 bg-[#e91e8c] opacity-20 rotate-45 transform pointer-events-none" />
+      {/* Decorative World Cup shapes */}
+      <div className="absolute top-10 left-32 pointer-events-none">
+        <StarSix color="#e91e8c" size={110} opacity={0.15} rotate={10} />
+      </div>
+      <div className="absolute top-12 right-16 pointer-events-none">
+        <StarFour color="#e91e8c" size={120} opacity={0.15} rotate={15} />
+      </div>
+      <div className="absolute top-8 right-64 pointer-events-none">
+        <Diamond color="#f5c518" size={40} opacity={0.25} rotate={20} />
+      </div>
+      <div className="absolute top-1/3 right-8 pointer-events-none">
+        <Droplet color="#00b4d8" size={80} opacity={0.15} rotate={-20} />
+      </div>
+      <div className="absolute bottom-24 right-32 pointer-events-none">
+        <StarSix color="#f5c518" size={70} opacity={0.15} rotate={10} />
+      </div>
+      <div className="absolute bottom-16 left-16 pointer-events-none">
+        <FlowerCross color="#e91e8c" size={100} opacity={0.12} rotate={15} />
+      </div>
+      <div className="absolute top-1/2 left-8 pointer-events-none">
+        <Diamond color="#00b4d8" size={30} opacity={0.2} rotate={45} />
+      </div>
+      <div className="absolute top-1/3 left-48 pointer-events-none">
+        <StarFour color="#00b4d8" size={100} opacity={0.12} rotate={30} />
+      </div>
+      <div className="absolute bottom-1/3 right-48 pointer-events-none">
+        <StarFour color="#f5c518" size={50} opacity={0.12} rotate={30} />
+      </div>
 
       {/* Main content */}
       <div className="flex-1 flex flex-col justify-center items-center px-16 md:px-24 py-24 relative z-10 text-center">
@@ -28,7 +46,7 @@ export default function Home() {
             <div className="w-2 h-2 bg-[#f5c518] rotate-45 transform flex-shrink-0" />
             <p
               className="text-[#f5c518] uppercase tracking-widest text-xs font-semibold"
-              style={{ fontFamily: 'var(--font-poppins)' }}
+              style={{ fontFamily: 'var(--font-montserrat)' }}
             >
               A Study of Pitch Science & Stadium Aesthetics
             </p>
@@ -39,7 +57,7 @@ export default function Home() {
           <h1
             className="font-black leading-none mb-10 tracking-tight"
             style={{
-              fontFamily: 'var(--font-poppins)',
+              fontFamily: 'var(--font-montserrat)',
               fontSize: 'clamp(5rem, 12vw, 10rem)',
             }}
           >
@@ -68,7 +86,7 @@ export default function Home() {
             <Link href="/stadiums" style={{textDecoration: 'none'}}>
               <div
                 style={{
-                  fontFamily: 'var(--font-poppins)',
+                  fontFamily: 'var(--font-montserrat)',
                   clipPath: 'polygon(30px 0%, calc(100% - 30px) 0%, 100% 50%, calc(100% - 30px) 100%, 30px 100%, 0% 50%)',
                   backgroundColor: '#e91e8c',
                   color: 'white',
@@ -88,7 +106,7 @@ export default function Home() {
             <Link href="/tool" style={{textDecoration: 'none'}}>
               <div
                 style={{
-                  fontFamily: 'var(--font-poppins)',
+                  fontFamily: 'var(--font-montserrat)',
                   clipPath: 'polygon(30px 0%, calc(100% - 30px) 0%, 100% 50%, calc(100% - 30px) 100%, 30px 100%, 0% 50%)',
                   backgroundColor: '#00b4d8',
                   color: 'white',
