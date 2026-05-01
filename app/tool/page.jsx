@@ -74,7 +74,7 @@ export default function ToolPage() {
   const allSelected = selectedStadium && selectedFormat && selectedCondition
 
   return (
-    <main className="min-h-screen bg- text-white">
+    <main className="min-h-screen bg- text-white" style = {{fontFamily: 'var(--font-nunito)'}}>
 
       {/* Header */}
       <div className="relative px-8 md:px-16 pt-20 pb-12 overflow-hidden">
@@ -110,7 +110,8 @@ export default function ToolPage() {
             <select
               value={selectedStadium}
               onChange={(e) => setSelectedStadium(e.target.value)}
-              className="w-full bg-[#2d1b69] border border-[#3d2b79] text-white px-4 py-3 text-sm focus:outline-none focus:border-[#f5c518] transition-colors"
+              className="w-full bg-[#111111] border border-[#222222] text-white px-4 py-3 text-sm focus:outline-none focus:border-[#f5c518] transition-colors"
+              style={{ backgroundColor: '#2d1b69', color: 'white'}}
             >
               <option value="">Select a ground...</option>
               {stadiums.map((s) => (
@@ -131,10 +132,11 @@ export default function ToolPage() {
                 <button
                   key={f}
                   onClick={() => setSelectedFormat(f)}
+                  style={{ color: 'white', fontFamily: 'var(--font-poppins)' }}
                   className={`flex-1 py-3 text-sm uppercase tracking-widest border transition-colors ${
                     selectedFormat === f
-                      ? 'bg-[#e9138c] border-[#f5c518] text-white'
-                      : 'bg-[#2d1b69] border-[#3d2b79] text-white/60 hover:border-[#f5c518]'
+                      ? 'bg-[#e9138c] border-[#e91e8c] text-white'
+                      : 'bg-[#2d1b69] border-[#3d2b79] text-white hover:border-[#e91e8c]'
                   }`}
                 >
                   {f}
@@ -146,17 +148,18 @@ export default function ToolPage() {
           {/* Conditions */}
           <div className="mb-6">
             <label className="block text-xs uppercase tracking-widest text-[#e91e8c] mb-2">
-              Match Conditions
+              Match Time
             </label>
             <div className="flex flex-col gap-3">
               {conditions.map((c) => (
                 <button
                   key={c}
                   onClick={() => setSelectedCondition(c)}
+                  style={{ color: 'white', fontFamily: 'var(--font-poppins)' }}
                   className={`py-3 px-4 text-sm uppercase tracking-widest border text-left transition-colors ${
                     selectedCondition === c
-                      ? 'bg-[#e91e8c] border-[#f5c518] text-white'
-                      : 'bg-[#2d1b69] border-[#3d2b79] text-white/60 hover:border-[#f5c518]'
+                      ? 'bg-[#e91e8c] border-[#e91e8c] text-white'
+                      : 'bg-[#2d1b69] border-[#3d2b79] text-white hover:border-[#e91e8c]'
                   }`}
                 >
                   {c}

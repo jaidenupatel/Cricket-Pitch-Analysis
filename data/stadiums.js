@@ -41,7 +41,7 @@ export const stadiums = [
     t20League: "The Hundred",
     description: "The Oval, or known as the Kia Oval for sponsorship reasons, is another iconic English cricket ground. Located in south London and opened in 1845, it has been famous for traditionally hosting the last match of the English Test season. The overcast climate with hot summers means the grass-based pitches dry and flatten out over time. On Days 1 and 2, the surface may present a generous amount of grass that will offer swing, seam, pace, and bounce, however the wicket still tends to aid batting during this time; over time, the pitch dries out and deteriorates, bringing spin bowlers into play by offering more grip off the surface. Factors such as dew, moisture, and cracks are generally around low to low-moderate levels, however the overcast climate may cause higher moisture retention, encouraging grass growth and dampening the pitch. Additionally to its atmosphere, the Victorian-style Pavilion with the clock on top is a sight truly unique to this ground; it adds an aura of elegance to the seats and stands around it. The iconic Grade II listed Victorian gas holders—being redeveloped into “The Halo”— reside next to the stadium, and from the same view, the London skyline can partially be seen. Overall, the average totals (in 1st/2nd innings) have been 246/220 in ODIs and 160/148 in T20s, meanwhile in recent times both those numbers have increased to 265/240 and 162/147; Test matches show a different pattern by having a higher average total in the 1st and 2nd innings compared to the 3rd and 4th.",
     aestheticHook: "Victorian gasholders, industrial heritage",
-    image: "/images/the-oval.jpg",
+    image: "/images/the_oval.jpg",
   },
   {
     name: "Newlands",
@@ -129,7 +129,7 @@ export const stadiums = [
     t20League: "IPL",
     description: "Add your 150-200 word profile here.",
     aestheticHook: "Colonial grandeur, river delta, largest Test ground in India",
-    image: "/images/eden-gardens.jpg",
+    image: "/images/eden_gardens.jpg",
   },
   {
     name: "HPCA Stadium",
@@ -151,7 +151,7 @@ export const stadiums = [
     t20League: "IPL",
     description: "Add your 150-200 word profile here.",
     aestheticHook: "Himalayan mountain backdrop, pine forests",
-    image: "/images/hpca-dharamsala.jpg",
+    image: "/images/hpca.jpg",
   },
   {
     name: "MA Chidambaram Stadium",
@@ -195,7 +195,7 @@ export const stadiums = [
     t20League: "IPL",
     description: "Add your 150-200 word profile here.",
     aestheticHook: "World's largest stadium, burnt orange seats",
-    image: "/images/narendra-modi.jpg",
+    image: "/images/modi.jpg",
   },
   {
     name: "Sydney Cricket Ground",
